@@ -10,11 +10,11 @@ html {
   font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 
-.app {
+#app {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url(/public/img/3.jpg);
+  background-image: url(./img/3.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -232,16 +232,16 @@ header > input {
 }
 
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
 }
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
 }
 
 .details > section > * {

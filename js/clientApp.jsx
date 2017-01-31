@@ -1,30 +1,28 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var MyTitle = require('./myTitle.jsx')
-
-var containerApp = document.getElementById('app')
-
-// this does not work with a function or variable declaration inside the arrow funtion
-// as if it has parenthesis it will be assumed that it is a return.
-
-// if we need to do something else inside this component then use the other syntax:
-//var MyFirstComponent = () => {
-//  const x = 'blablalvba'
-//  return (
-//    <div>{x}</div>
-//  )
-//}
+const React = require('react');
+const ReactDOM  = require('react-dom');
+const Landing = require('./landing');
+const Search = require('./search');
+const Layout = require('./layout');
+const ReactRouter =  require('react-router');
+const { Router, Route, hashHistory, IndexRoute} = require('react-router');
+//const Router =  ReactRouter.Router;
+//const Route =  ReactRouter.Route;
+//const hashHistory = ReactRouter.hashHistory;
 
 
-var MyFirstComponent  = () => (
-    <div>
-      <MyTitle title="You say your not getting enough" color='purple' />
-      <MyTitle title="But I remind you of all that bad stuff" color='peru' />
-      <MyTitle title="So what the hell am I supposed to do?" color='red' />
-      <MyTitle title="Just put a bandaid on it?" color='blue' />
-      <MyTitle title="And stop the bleeding now" color='green' />
-    </div>
+const containerApp = document.getElementById('app');
+
+const App = function() {
+  return (
+    <Router history={hashHistory}>
+      <Route path='/' component={Layout}>
+        <IndexRoute component={Landing} />
+        <Route path='/search' component={Search} />
+      </Route>
+    </Router>
   )
+}
 
-ReactDOM.render(<MyFirstComponent/>, containerApp)
+ReactDOM.render(<App/>, containerApp);
+
 

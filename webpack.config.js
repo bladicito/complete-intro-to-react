@@ -7,6 +7,7 @@ module.exports = {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
   },
+  watch: true,
   resolve : {
     extensions: ['.js', '.jsx', '.json']
   },
@@ -19,7 +20,16 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   }
