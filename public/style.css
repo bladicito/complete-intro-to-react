@@ -24,6 +24,10 @@ html {
   color: #333;
 }
 
+.search {
+  margin-top: 45px;
+}
+
 .app > h1 {
   color: white;
 }
@@ -136,7 +140,6 @@ pre {
   display: block;
   float: right;
   width: 52%;
-  overflow-y: scroll;
 }
 
 .show-card > div > h3 {

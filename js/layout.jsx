@@ -1,7 +1,7 @@
 const React = require('react');
 
 const Layout = (props) => (
-  <div className='app-container'>
+  <div className='app-container search'>
     {props.children}
   </div>
 )

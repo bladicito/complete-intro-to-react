@@ -1,28 +1,38 @@
 import React from 'react';
-import data from '../public/data.json'
 import ShowCard from './showCard'
+import Header from './header'
+const { arrayOf, object} = React.PropTypes;
 
 
 const Search = React.createClass({
   getInitialState () {
     return {
-      searchTerm: 'This is my search term'
+      searchTerm: ''
     }
   },
 
-  handleSearchTermEvent (event) {
-    this.setState({searchTerm: event.target.value});
+  handleSearchTermChange (searchTerm) {
+    this.setState({searchTerm: searchTerm});
+  },
+
+  propTypes :  {
+    params: object
   },
 
   render () {
+
+
     return (
       <div className='container'>
-        <header>
-          <h1>{this.state.searchTerm}</h1>
-          <input onChange={this.handleSearchTermEvent} className='seeach-input' type='text'  placeholder='Search' value={this.state.searchTerm}/>
-        </header>
+        <Header
+          handleSearchTermChange={this.handleSearchTermChange}
+          searchTerm={this.state.searchTerm}
+          showSearch
+        />
         <div className='shows'>
-          {data.shows.map((currentShow) => (
+          {this.props.route.shows
+            .filter((currentShow) => `${currentShow.title} ${currentShow.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+            .map((currentShow) => (
             <ShowCard {...currentShow} key={currentShow.imdbID}/>
           ))}
         </div>
