@@ -1,7 +1,7 @@
 import React from 'react'
 import ShowCard from './showCard'
 import Header from './header'
-const { object, string} = React.PropTypes
+const { object, string, arrayOf} = React.PropTypes
 const { connector } = require('./store')
 
 
@@ -13,7 +13,7 @@ const Search = React.createClass({
   },
 
   propTypes :  {
-    params: object,
+    shows: arrayOf(object),
     searchTerm : string
   },
 
@@ -24,7 +24,7 @@ const Search = React.createClass({
       <div className='container'>
         <Header showSearch/>
         <div className='shows'>
-          {this.props.route.shows
+          {this.props.shows
             .filter((currentShow) => `${currentShow.title} ${currentShow.description}`.toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0)
             .map((currentShow) => (
             <ShowCard {...currentShow} key={currentShow.imdbID}/>
