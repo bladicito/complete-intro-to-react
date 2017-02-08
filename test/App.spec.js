@@ -6,9 +6,10 @@ const Search = require('../js/search');
 const ShowCard = require('../js/showCard');
 const { shallow, mount } = require('enzyme');
 const { shows } = require('../public/data');
+const { store, rootReducer } = require('../js/store');
 
 
-describe('<Search/> to be tested', function() {
+xdescribe('<Search/> to be tested', function() {
   it('should render the brand', function() {
     const wrapper = shallow(<Search/>);
     expect(wrapper.contains(<h1 className='brand'>SVIDEO</h1>)).to.be.true;
@@ -27,7 +28,19 @@ describe('<Search/> to be tested', function() {
     expect(wrapper.state('searchTerm')).to.equal('house');
     expect(wrapper.find('.show-card').length).to.equal(2);
   })
-
-
-
 });
+
+describe('Store', () => {
+  it('should bootstrap', () => {
+    const state = rootReducer(undefined, {type: '@@redux/INIT'})
+    expect(state).to.deep.equal({
+      searchTerm:''
+    })
+  })
+
+  it('should handle setSearchTermActions', () => {
+    const state = rootReducer({ searchTerm: 'some random string' }, { type: 'setSearchTerm', value: 'correct string'});
+    expect(state).to.deep.equal({searchTerm: 'correct string'})
+  })
+
+})

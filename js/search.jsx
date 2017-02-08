@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import ShowCard from './showCard'
 import Header from './header'
-const { object, string} = React.PropTypes;
-const { connector } = require('./store');
+const { object, string} = React.PropTypes
+const { connector } = require('./store')
 
 
 const Search = React.createClass({
