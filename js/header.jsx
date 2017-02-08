@@ -1,6 +1,7 @@
 const React  = require('react');
 const { Link } = require('react-router');
 const { func, bool, string} = React.PropTypes;
+const { connector } = require('./store');
 
 const Header = React.createClass({
 
@@ -11,7 +12,7 @@ const Header = React.createClass({
   },
 
   handleSearchTermEvent (evt) {
-    this.props.handleSearchTermChange(evt.target.value);
+    this.props.setSearchTerm(evt.target.value);
   },
 
   render () {
@@ -41,4 +42,4 @@ const Header = React.createClass({
   }
 });
 
-module.exports = Header;
+module.exports = connector(Header);

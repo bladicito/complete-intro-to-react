@@ -1,19 +1,13 @@
-const React = require('react');
-const ReactDOM  = require('react-dom');
-const Landing = require('./landing');
-const Search = require('./search');
-const Layout = require('./layout');
-const Details = require('./details');
-const ReactRouter =  require('react-router');
-const { Router, Route, hashHistory, IndexRoute} = require('react-router');
-const { shows } = require('../public/data');
-
-const store = require('./store');
-const Provider = require('react-redux');
-
-//const Router =  ReactRouter.Router;
-//const Route =  ReactRouter.Route;
-//const hashHistory = ReactRouter.hashHistory;
+const React = require('react')
+const ReactDOM = require('react-dom')
+const Landing = require('./Landing')
+const Search = require('./Search')
+const Layout = require('./Layout')
+const Details = require('./Details')
+const { Router, Route, IndexRoute, hashHistory } = require('react-router')
+const { shows } = require('../public/data')
+const { store } = require('./Store')
+const { Provider } = require('react-redux')
 
 
 const containerApp = document.getElementById('app');

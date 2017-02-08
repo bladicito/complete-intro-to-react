@@ -1,15 +1,14 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
-  context : __dirname,
+  context: __dirname,
   entry: './js/ClientApp.jsx',
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
   },
-  watch: true,
-  resolve : {
-    extensions: ['.js', '.jsx', '.json']
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
@@ -17,12 +16,14 @@ module.exports = {
     chunks: false
   },
   module: {
-    loaders: [
+    preLoaders: [
       {
         test: /\.jsx?$/,
         loader: "eslint-loader",
         exclude: /node_modules/
-      },
+      }
+    ],
+    loaders: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader'
