@@ -42,7 +42,7 @@ class Landing extends React.Component {
 
 const { func, string } = React.PropTypes
 
-Landing.propTypes =  {
+Landing.propTypes = {
   searchTerm: string,
   setSearchTerm: func
 }

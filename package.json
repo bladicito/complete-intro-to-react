@@ -8,6 +8,7 @@
     "lint": "standard",
     "build": "webpack",
     "watch": "webpack --watch",
+    "server": "http-server -p 9090 ./",
     "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require babel-register --extension .jsx npm test"
   },
   "author": "Brian Holt <btholt@gmail.com>",
@@ -16,6 +17,7 @@
     "axios": "0.9.1",
     "express": "4.13.4",
     "lodash": "4.6.1",
+    "node-ensure": "0.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
